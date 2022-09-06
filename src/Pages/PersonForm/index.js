@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Grid, Box, TextField, Button } from '@mui/material'
 import Img from '../../assets/undraw_personal_info_re_ur1n.svg'
 import validate, { getValueForm } from '../../Validations/FormPerson'
+import PersonRepositoy from './../Infrastructure/repository/PersonRepositoy'
 
 const PersonForm = () => {
 	const [dataForm, setDataForm] = useState({})
@@ -10,6 +11,7 @@ const PersonForm = () => {
 	const handleSubmit = e => {
 		e.preventDefault()
 		setErrors(validate(dataForm))
+		if(!validate(dataForm)) PersonRepository(dataForm)
 	}
 	return (
 		<Grid container spacing={2} sx={{ height: '100vh', p: 4 }} justifyContent="center" alignItems="center">
